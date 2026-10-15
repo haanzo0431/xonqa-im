@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+:root, [data-theme="dark"] {
+  /* DARK MODE: Permanent surface layering (No hover shifts) */
+  --bg-page: #0d131a;            /* Deep Royal Navy background */
+  --bg-page-alt: #131c26;        /* Permanently lighter alternating section */
+  --bg-nav: #121a23;
+  --bg-card: #182432;            /* Permanently elevated slate-navy card surface */
+  --bg-card-alt: #1f2d3e;        /* Permanently distinct accent card surface */
+  --bg-input: #101822;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(230, 184, 59, 0.25);
+  --accent: #e6b83b;             /* Regal Emblem Gold */
+  --accent-hover: #f0c446;
+  --accent-muted: rgba(230, 184, 59, 0.12);
+  --card-glow: rgba(230, 184, 59, 0.08);
+}
+
+[data-theme="light"] {
+  /* LIGHT MODE: Fixed dark navy contrast blocks & light sections */
+  --bg-page: #f5f3ec;            /* Warm Ivory base */
+  --bg-page-alt: #121a24;        /* Permanent Deep Navy alternating section break */
+  --bg-nav: #ffffff;
+  --bg-card: #ffffff;            /* Pure white main card */
+  --bg-card-dark: #18222d;       /* Permanent deep navy card block in light mode */
+  --bg-input: #e8e4d8;
+  --text-primary: #0d131a;
+  --text-secondary: #526071;
+  --border-color: rgba(212, 163, 40, 0.3);
+  --accent: #c9961a;             /* Antique Gold */
+  --accent-hover: #a87b10;
+  --accent-muted: rgba(201, 150, 26, 0.12);
+  --card-glow: rgba(13, 19, 26, 0.06);
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Helper Theme Classes */
+.theme-bg-page { background-color: var(--bg-page); }
+.theme-bg-page-alt { background-color: var(--bg-page-alt); }
+.theme-bg-nav { background-color: var(--bg-nav); }
+.theme-bg-card { background-color: var(--bg-card); }
+.theme-bg-input { background-color: var(--bg-input); }
+.theme-text-primary { color: var(--text-primary); }
+.theme-text-secondary { color: var(--text-secondary); }
+.theme-border { border-color: var(--border-color); }
+
+/* Permanent Dark Contrast Section (for Light Mode) */
+[data-theme="light"] .contrast-dark-section {
+  background-color: var(--bg-page-alt);
+  color: #f8fafc;
+}
+
+[data-theme="light"] .contrast-dark-section .theme-text-primary {
+  color: #ffffff;
+}
+
+[data-theme="light"] .contrast-dark-section .theme-text-secondary {
+  color: #94a3b8;
+}
+
+/* Permanent Dark Card Surface (for Light Mode) */
+[data-theme="light"] .contrast-dark-card {
+  background-color: var(--bg-card-dark);
+  color: #f8fafc;
+  border: 1px solid rgba(230, 184, 59, 0.25);
+}
+
+[data-theme="light"] .contrast-dark-card .theme-text-primary {
+  color: #ffffff;
+}
+
+[data-theme="light"] .contrast-dark-card .theme-text-secondary {
+  color: #94a3b8;
+}
+
+/* Gold Gradient Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fff2c6 0%, #e6b83b 50%, #b88b1d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .text-gold-gradient {
+  background: linear-gradient(135deg, #7c5800 0%, #c9961a 50%, #8c6307 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ambient Pulsing Background Glow */
+.bg-ambient-glow {
+  position: relative;
+}
+
+.bg-ambient-glow::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85vw;
+  height: 600px;
+  background: radial-gradient(circle, rgba(230, 184, 59, 0.1) 0%, rgba(13, 19, 26, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Automatic Palette Overrides for Tailwind Accent Classes */
+.bg-emerald-500 { background-color: var(--accent) !important; color: #000000 !important; }
+.bg-emerald-500\/10 { background-color: var(--accent-muted) !important; }
+.hover\:bg-emerald-400:hover { background-color: var(--accent-hover) !important; }
+.text-emerald-500, .text-emerald-400 { color: var(--accent) !important; }
+.hover\:text-emerald-400:hover { color: var(--accent-hover) !important; }
+.border-emerald-500, .border-emerald-500\/20, .border-emerald-500\/30, .border-emerald-500\/50 { border-color: var(--border-color) !important; }
+.focus\:border-emerald-500:focus { border-color: var(--accent) !important; }
+
+/* Infinite Ticker Keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+html {
+  scroll-behavior: smooth;
+}
