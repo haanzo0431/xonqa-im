@@ -17,7 +17,7 @@ export const ABROAD_STUDENTS = [
     major: "AI & Machine Learning",
     scholarship: "$8,900 / year",
     status: "enrolled", // "enrolled" = currently studying there
-    statusLabel: "Enrolled & Studying",
+    statusLabel: "Enrolled",
     studentPhoto: "/bahodir.jpg", // Student photo
     uniPhoto: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=800&auto=format&fit=crop",
     lat: 39.9610,
