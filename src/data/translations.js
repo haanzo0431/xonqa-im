@@ -61,7 +61,7 @@ export const TRANSLATIONS = {
       radarBadge: 'Global Acceptance Radar',
       radarTitle: 'Acceptances around the Globe',
       radarSubtitle: 'Showcasing university acceptances, scholarships won, and enrolled graduates from Xonqa tuman IM.',
-      enrolled: 'Enrolled & Studying',
+      enrolled: 'Enrolled',
       offerReceived: 'Offer Received',
       allPlaces: 'All Places',
       back: 'Back',

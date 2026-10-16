@@ -183,7 +183,7 @@ export default function PublicHeader() {
 
         {/* APPLY BUTTON */}
         <a
-          href="https://piima.uz"
+          href="https://ariza.piima.uz/"
           target="_blank"
           rel="noopener noreferrer"
           className="px-4 py-2 rounded-full bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold transition-all duration-300 shadow-md hover:shadow-amber-500/25 flex items-center gap-1.5 shrink-0"

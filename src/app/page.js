@@ -59,7 +59,7 @@ const RAW_SOCIAL_FEED = [
   { id: '5', platform: 'instagram', defaultTitle: 'Successful Graduate Students', defaultDesc: 'Our successful graduates share their experiences!', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQJl10pjURcPWEZ2hCZ1oWEhlbG99ORnsnZkjQbyu-SGJ5MwMeZJw1Gs4&s=10', link: 'https://www.instagram.com/xonqa.im/reel/DXn7HuEDERj/', date: 'Apr 27, 2026' },
   { id: '6', platform: 'telegram', defaultTitle: 'Results on Foreign certificates', defaultDesc: 'Check our IELTS/SAT/National certificates!', imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=8₀&w=8₀₀&auto=format&fit=crop', link: 'https://t.me/SSinKhanka/15778', date: 'Aug 27, 2026' },
   { id: '7', platform: 'youtube', defaultTitle: 'School-Talk Podcast', defaultDesc: 'A school podcast featuring educational and meaningful discussions, led by students.', imageUrl: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop', link: 'https://youtube.com/@School-Talk1'},
-  { id: '8', platform: 'instagram', defaultTitle: 'Students thoughts on the future', defaultDesc: 'Students ideas and thoughts on the future of education', imageUrl: 'question.png', link: 'https://youtube.com/@School-Talk1', date: 'Aug 28, 2026' },
+  { id: '8', platform: 'instagram', defaultTitle: 'Students thoughts on the future', defaultDesc: 'Students ideas and thoughts on the future of education', imageUrl: 'question.png', link: 'https://www.instagram.com/reel/Ddii5_zgNLG/?exln=M3liczJxaDA1M214', date: 'Aug 28, 2026' },
 ];
 
 function SocialBadge({ platform }) {
