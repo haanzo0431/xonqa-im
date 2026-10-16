@@ -27,6 +27,7 @@ export default function GlobalRadar3D() {
   const [currentIndex, setCurrentIndex] = useState(0); // Default to first
   const [countries, setCountries] = useState({ features: [] });
   const [mounted, setMounted] = useState(false);
+  const [globeDimensions, setGlobeDimensions] = useState({ width: 650, height: 520 });
 
   // Custom Sky Blue Globe Material for Oceans
   const customGlobeMaterial = useMemo(() => {
@@ -36,7 +37,7 @@ export default function GlobalRadar3D() {
     });
   }, []);
 
-  // Fetch world country border polygons
+  // Fetch world country border polygons & handle responsive dimensions
   useEffect(() => {
     setMounted(true);
     fetch(
@@ -45,6 +46,22 @@ export default function GlobalRadar3D() {
       .then((res) => res.json())
       .then((data) => setCountries(data))
       .catch((err) => console.error('Error loading world borders:', err));
+
+    const updateDimensions = () => {
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth < 640) {
+          setGlobeDimensions({ width: window.innerWidth - 48, height: 340 });
+        } else if (window.innerWidth < 1024) {
+          setGlobeDimensions({ width: 600, height: 420 });
+        } else {
+          setGlobeDimensions({ width: 650, height: 520 });
+        }
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
   const activeStudent = currentIndex !== null ? ABROAD_STUDENTS[currentIndex] : null;
@@ -130,14 +147,14 @@ export default function GlobalRadar3D() {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 py-8 space-y-6">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 overflow-hidden">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b theme-border">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold uppercase mb-2">
             <GlobeIcon className="w-3.5 h-3.5 animate-pulse" /> {t('achievements', 'radarBadge')}
           </div>
-          <h2 className="text-3xl font-serif font-bold theme-text-primary">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold theme-text-primary">
             {t('achievements', 'radarTitle')}
           </h2>
           <p className="text-xs theme-text-secondary mt-1">
@@ -154,7 +171,7 @@ export default function GlobalRadar3D() {
               <button
                 key={s.id}
                 onClick={() => handleChipClick(idx)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all flex items-center gap-2 border ${
+                className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono transition-all flex items-center gap-1.5 sm:gap-2 border cursor-pointer ${
                   isActive
                     ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 font-bold shadow-md shadow-emerald-500/10 scale-105'
                     : 'theme-bg-card theme-border theme-text-secondary hover:theme-text-primary'
@@ -172,7 +189,7 @@ export default function GlobalRadar3D() {
           {currentIndex !== null && (
             <button
               onClick={() => setCurrentIndex(null)}
-              className="px-3 py-1.5 rounded-xl text-xs font-mono bg-white/5 border theme-border text-sky-400 hover:bg-sky-500/10 flex items-center gap-1 transition-all"
+              className="px-3 py-1.5 rounded-xl text-xs font-mono bg-white/5 border theme-border text-sky-400 hover:bg-sky-500/10 flex items-center gap-1 transition-all cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" /> {t('achievements', 'allPlaces')}
             </button>
@@ -181,17 +198,17 @@ export default function GlobalRadar3D() {
       </div>
 
       {/* Main Split View */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch w-full max-w-full">
         
         {/* LEFT SIDE: Interactive 3D Globe */}
-        <div className="lg:col-span-7 relative w-full h-[520px] rounded-3xl theme-bg-card border theme-border overflow-hidden flex items-center justify-center shadow-2xl">
+        <div className="lg:col-span-7 relative w-full h-[340px] sm:h-[420px] lg:h-[520px] rounded-3xl theme-bg-card border theme-border overflow-hidden flex items-center justify-center shadow-2xl">
           {mounted ? (
             <Globe
               ref={globeRef}
               backgroundColor="rgba(0,0,0,0)"
               globeMaterial={customGlobeMaterial}
-              width={650}
-              height={520}
+              width={globeDimensions.width}
+              height={globeDimensions.height}
               showAtmosphere={true}
               atmosphereColor="#60a5fa"
               atmosphereAltitude={0.14}
@@ -230,7 +247,7 @@ export default function GlobalRadar3D() {
           )}
 
           {/* Quick Legend Overlay */}
-          <div className="absolute bottom-4 left-4 p-3 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-mono text-white/80 space-y-1.5 z-10">
+          <div className="absolute bottom-3 left-3 p-2.5 sm:p-3 rounded-2xl bg-black/60 backdrop-blur-md border border-white/10 text-[10px] sm:text-[11px] font-mono text-white/80 space-y-1 z-10">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>{t('achievements', 'enrolled')}</span>
@@ -243,7 +260,7 @@ export default function GlobalRadar3D() {
         </div>
 
         {/* RIGHT SIDE: Information Showcase Panel */}
-        <div className="lg:col-span-5 h-full flex flex-col justify-between p-6 md:p-8 rounded-3xl theme-bg-card border theme-border space-y-6">
+        <div className="lg:col-span-5 h-full flex flex-col justify-between p-5 sm:p-6 md:p-8 rounded-3xl theme-bg-card border theme-border space-y-6">
           {activeStudent ? (
             <div className="space-y-5">
               {/* Status Badge & Flag Header */}
@@ -255,7 +272,7 @@ export default function GlobalRadar3D() {
                       {activeStudent.country}
                     </span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-serif font-bold theme-text-primary leading-tight">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold theme-text-primary leading-tight">
                     {activeStudent.university}
                   </h3>
                   <p className="text-xs theme-text-secondary flex items-center gap-1 mt-1 font-mono">
@@ -265,11 +282,11 @@ export default function GlobalRadar3D() {
 
                 {/* Status Badge */}
                 {activeStudent.status === 'enrolled' ? (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-mono font-bold shrink-0 shadow-lg shadow-emerald-500/10">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-[11px] sm:text-xs font-mono font-bold shrink-0 shadow-lg shadow-emerald-500/10">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> {t('achievements', 'enrolled')}
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-400 text-xs font-mono font-bold shrink-0">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-400 text-[11px] sm:text-xs font-mono font-bold shrink-0">
                     <BookmarkCheck className="w-3.5 h-3.5 text-amber-400" /> {t('achievements', 'offerReceived')}
                   </span>
                 )}
@@ -281,10 +298,10 @@ export default function GlobalRadar3D() {
                   {t('achievements', 'photoShowcase')}
                 </span>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {/* Photo 1: Student Photo */}
                   {activeStudent.studentPhoto ? (
-                    <div className="relative group h-40 rounded-2xl overflow-hidden border theme-border bg-black/40 shadow-md">
+                    <div className="relative group h-36 sm:h-40 rounded-2xl overflow-hidden border theme-border bg-black/40 shadow-md">
                       <img
                         src={activeStudent.studentPhoto}
                         alt={activeStudent.studentName}
@@ -303,7 +320,7 @@ export default function GlobalRadar3D() {
                   ) : null}
 
                   {/* Photo 2: University Campus Photo */}
-                  <div className={`relative group h-40 rounded-2xl overflow-hidden border theme-border bg-black/40 shadow-md ${!activeStudent.studentPhoto ? 'md:col-span-2' : ''}`}>
+                  <div className={`relative group h-36 sm:h-40 rounded-2xl overflow-hidden border theme-border bg-black/40 shadow-md ${!activeStudent.studentPhoto ? 'sm:col-span-2' : ''}`}>
                     <img
                       src={activeStudent.uniPhoto}
                       alt={activeStudent.university}
@@ -324,7 +341,7 @@ export default function GlobalRadar3D() {
 
               {/* Student & Scholarship Information Details */}
               <div className="space-y-3 pt-2">
-                <div className="p-3.5 rounded-2xl theme-bg-page border theme-border space-y-2">
+                <div className="p-3 sm:p-3.5 rounded-2xl theme-bg-page border theme-border space-y-2">
                   <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 font-bold uppercase">
                     <User className="w-3.5 h-3.5" />
                     <span>{t('achievements', 'acceptedGrads')}</span>
@@ -334,8 +351,8 @@ export default function GlobalRadar3D() {
                     <div className="space-y-1.5 pt-1">
                       {activeStudent.students.map((st, i) => (
                         <div key={i} className="flex items-center justify-between text-xs font-mono border-b theme-border pb-1 last:border-0 last:pb-0">
-                          <span className="theme-text-primary font-medium">{st.name}</span>
-                          <span className="text-amber-400 font-bold">{st.grant}</span>
+                          <span className="theme-text-primary font-medium truncate">{st.name}</span>
+                          <span className="text-amber-400 font-bold shrink-0 ml-2">{st.grant}</span>
                         </div>
                       ))}
                     </div>
@@ -347,14 +364,14 @@ export default function GlobalRadar3D() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3 rounded-2xl theme-bg-page border theme-border space-y-1">
+                  <div className="p-2.5 sm:p-3 rounded-2xl theme-bg-page border theme-border space-y-1">
                     <span className="text-[10px] font-mono theme-text-secondary uppercase">{t('achievements', 'programMajor')}</span>
                     <p className="text-xs font-mono font-semibold theme-text-primary truncate">
                       {translations?.achievements?.majors?.[activeStudent.major] || activeStudent.major}
                     </p>
                   </div>
 
-                  <div className="p-3 rounded-2xl theme-bg-page border theme-border space-y-1">
+                  <div className="p-2.5 sm:p-3 rounded-2xl theme-bg-page border theme-border space-y-1">
                     <span className="text-[10px] font-mono theme-text-secondary uppercase">{t('achievements', 'grantAward')}</span>
                     <p className="text-xs font-mono font-bold text-amber-400 truncate">
                       {activeStudent.scholarship}
@@ -397,7 +414,7 @@ export default function GlobalRadar3D() {
           <div className="pt-4 border-t theme-border flex items-center justify-between gap-4">
             <button
               onClick={handlePrev}
-              className="px-4 py-2.5 rounded-2xl theme-bg-page border theme-border hover:border-emerald-500/50 theme-text-primary text-xs font-mono font-bold flex items-center gap-2 transition-all group"
+              className="px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl theme-bg-page border theme-border hover:border-emerald-500/50 theme-text-primary text-xs font-mono font-bold flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer group"
             >
               <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               {t('achievements', 'back')}
@@ -409,7 +426,7 @@ export default function GlobalRadar3D() {
 
             <button
               onClick={handleNext}
-              className="px-4 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-mono font-bold flex items-center gap-2 transition-all shadow-lg shadow-emerald-500/20 group"
+              className="px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-mono font-bold flex items-center gap-1.5 sm:gap-2 transition-all shadow-lg shadow-emerald-500/20 cursor-pointer group"
             >
               {t('achievements', 'next')}
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

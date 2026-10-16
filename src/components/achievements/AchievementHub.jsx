@@ -49,12 +49,12 @@ export default function AchievementHub() {
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 space-y-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 space-y-8 overflow-hidden">
       {/* Header & Combined Controls */}
       <div className="space-y-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b theme-border">
           <div>
-            <h2 className="text-3xl font-serif font-bold theme-text-primary">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold theme-text-primary">
               {t('achievements', 'honorWallTitle')}
             </h2>
             <p className="text-xs theme-text-secondary mt-1">
@@ -63,14 +63,14 @@ export default function AchievementHub() {
           </div>
 
           {/* Academic Year Selector Bar */}
-          <div className="flex items-center gap-2 p-1.5 rounded-2xl theme-bg-card border theme-border">
+          <div className="flex items-center gap-2 p-1.5 rounded-2xl theme-bg-card border theme-border self-start md:self-auto">
             {years.map((year) => {
               const isActive = selectedYear === year;
               return (
                 <button
                   key={year}
                   onClick={() => setSelectedYear(year)}
-                  className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all flex items-center gap-1.5 ${
+                  className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-mono font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                     isActive
                       ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20'
                       : 'theme-text-secondary hover:theme-text-primary hover:bg-white/5'
@@ -92,7 +92,7 @@ export default function AchievementHub() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-medium transition-all border ${
+                className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-medium transition-all border cursor-pointer ${
                   isActive
                     ? 'bg-amber-500/15 border-amber-500/50 text-amber-400 shadow-md shadow-amber-500/10'
                     : 'theme-bg-card theme-border theme-text-secondary hover:theme-text-primary'
@@ -106,17 +106,17 @@ export default function AchievementHub() {
       </div>
 
       {/* Metric Stats Banner for Selected Academic Year */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {metrics.map((m, idx) => (
           <div
             key={idx}
-            className="p-5 rounded-2xl theme-bg-card border theme-border space-y-1"
+            className="p-4 sm:p-5 rounded-2xl theme-bg-card border theme-border space-y-1"
           >
             <div className="flex items-center justify-between text-xs theme-text-secondary font-mono">
-              <span>{m.label}</span>
-              <span className="text-[10px] opacity-60">{selectedYear}</span>
+              <span className="truncate pr-2">{m.label}</span>
+              <span className="text-[10px] opacity-60 shrink-0">{selectedYear}</span>
             </div>
-            <div className="text-2xl font-serif font-bold text-amber-400">
+            <div className="text-xl sm:text-2xl font-serif font-bold text-amber-400">
               {m.value}
             </div>
           </div>
@@ -125,11 +125,11 @@ export default function AchievementHub() {
 
       {/* Cards Grid */}
       {filteredAchievements.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {filteredAchievements.map((item) => (
             <div
               key={item.id}
-              className="p-6 rounded-3xl theme-bg-card border theme-border space-y-4 hover:border-emerald-500/30 transition-all group relative overflow-hidden"
+              className="p-5 sm:p-6 rounded-3xl theme-bg-card border theme-border space-y-4 hover:border-emerald-500/30 transition-all group relative overflow-hidden"
             >
               <div className="flex items-start justify-between gap-4">
                 <span
@@ -149,7 +149,7 @@ export default function AchievementHub() {
               </div>
 
               <div>
-                <h3 className="text-xl font-serif font-bold theme-text-primary group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-lg sm:text-xl font-serif font-bold theme-text-primary group-hover:text-emerald-400 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-xs theme-text-secondary mt-1">
@@ -158,7 +158,7 @@ export default function AchievementHub() {
               </div>
 
               {item.detail && (
-                <p className="text-xs font-mono text-emerald-400/90 pt-2 border-t theme-border">
+                <p className="text-xs font-mono text-emerald-400/90 pt-2 border-t theme-border leading-relaxed">
                   {item.detail}
                 </p>
               )}
@@ -173,13 +173,13 @@ export default function AchievementHub() {
           ))}
         </div>
       ) : (
-        <div className="p-12 text-center rounded-3xl theme-bg-card border theme-border space-y-2">
+        <div className="p-8 sm:p-12 text-center rounded-3xl theme-bg-card border theme-border space-y-2">
           <p className="text-sm font-mono theme-text-secondary">
             No achievements recorded under "{categories.find((c) => c.id === selectedCategory)?.label}" for {selectedYear}.
           </p>
           <button
             onClick={() => setSelectedCategory('all')}
-            className="text-xs text-emerald-400 hover:underline font-mono"
+            className="text-xs text-emerald-400 hover:underline font-mono cursor-pointer"
           >
             Reset to All Heroes
           </button>
