@@ -6,6 +6,11 @@ import { LanguageProvider } from '@/context/LanguageContext';
 export const metadata = {
   title: "Xonqa Tuman Maktab Website",
   description: "Official School Website",
+  icons: {
+    icon: '/school_logo.webp',
+    shortcut: '/school_logo.webp',
+    apple: '/school_logo.webp',
+  },
 };
 
 export default function RootLayout({ children }) {

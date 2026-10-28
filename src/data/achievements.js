@@ -2,7 +2,7 @@ export const YEAR_METRICS = {
   '2025-2026': [
     { label: 'The admission rate', value: '96.6%', icon: 'Trophy' },
     { label: 'Total certificates', value: '374', icon: 'DollarSign' },
-    { label: 'Top IELTS/SAT Score', value: '8/1460', icon: 'TrendingUp' },
+    { label: 'Top IELTS/SAT Score', value: '8/1510', icon: 'TrendingUp' },
     { label: 'Total Scholarships', value: '$500k+', icon: 'DollarSign' },
   ],
 };

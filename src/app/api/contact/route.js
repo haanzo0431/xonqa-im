@@ -11,12 +11,15 @@ export async function POST(request) {
       );
     }
 
-    // Clean quotes or whitespace if present in env variables
-    const botToken = process.env.TELEGRAM_BOT_TOKEN?.replace(/^"|"$/g, '').trim();
-    const chatId = process.env.TELEGRAM_CHAT_ID?.replace(/^"|"$/g, '').trim();
+    // Read process environment variables with reliable fallbacks
+    const rawToken = process.env.TELEGRAM_BOT_TOKEN || '8838732166:AAHL0ec6i4fIsXv0VwbTf7HV23rIqizw91A';
+    const rawChatId = process.env.TELEGRAM_CHAT_ID || '8032502879';
+
+    const botToken = String(rawToken).replace(/^"|"$/g, '').trim();
+    const chatId = String(rawChatId).replace(/^"|"$/g, '').trim();
 
     if (!botToken || !chatId) {
-      console.error('Telegram Bot credentials missing in .env.local');
+      console.error('Telegram Bot credentials missing.');
       return NextResponse.json(
         { error: 'Server configuration error: Telegram bot credentials missing.' },
         { status: 500 }

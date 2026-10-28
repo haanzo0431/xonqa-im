@@ -66,7 +66,7 @@ export default function PublicHeader() {
       <Link href="/" className="flex items-center gap-2.5 sm:gap-3 hover:opacity-80 transition-opacity min-w-0">
         <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-emerald-500/20 shrink-0 bg-emerald-500/10 flex items-center justify-center">
           <Image
-            src="/school_logo.png"
+            src="/school_logo.webp"
             alt="School Logo"
             width={120}
             height={120}
@@ -79,7 +79,7 @@ export default function PublicHeader() {
         </div>
         <div className="truncate">
           <h1 className="font-serif font-bold text-xs sm:text-sm theme-text-primary leading-tight truncate">
-            Xonqa Region
+            {t('nav', 'xonqaRegion')}
           </h1>
           <p className="text-[9px] sm:text-[10px] font-mono theme-text-secondary uppercase tracking-wider truncate">
             {t('nav', 'specializedSchool')}

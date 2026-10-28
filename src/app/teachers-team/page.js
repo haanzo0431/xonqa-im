@@ -14,7 +14,7 @@ export default function TeachersPage() {
       roleKey: 'director',
       defaultRole: 'Director',
       experience: 7,
-      imageUrl: '/director.jpg',
+      imageUrl: '/director.webp',
       avatarText: 'AF',
     },
     {
@@ -23,7 +23,7 @@ export default function TeachersPage() {
       roleKey: 'deputyAcademic',
       defaultRole: 'Deputy, Academic',
       experience: 8,
-      imageUrl: '/zvuch.png',
+      imageUrl: '/zvuch.webp',
       avatarText: 'NK',
     },
     {
@@ -32,7 +32,7 @@ export default function TeachersPage() {
       roleKey: 'deputyStudent',
       defaultRole: 'Deputy, Student Affairs',
       experience: 20,
-      imageUrl: '/zam-driektor.png',
+      imageUrl: '/zam-driektor.webp',
       avatarText: 'BR',
     },
     {
@@ -41,7 +41,7 @@ export default function TeachersPage() {
       roleKey: 'counsellor',
       defaultRole: 'Counsellor',
       experience: 3,
-      imageUrl: '/photo_2026-09-23_16-42-34.jpg',
+      imageUrl: '/photo_2026-09-23_16-42-34.webp',
       avatarText: 'DU',
     },
   ];

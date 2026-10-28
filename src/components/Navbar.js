@@ -120,7 +120,7 @@ export default function Navbar() {
         <Link href={user ? '/platform' : '/'} className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 rounded-xl overflow-hidden border theme-border shrink-0 bg-emerald-500/10 flex items-center justify-center">
            <Image
-  src="/school_logo.png"
+  src="/school_logo.webp"
   alt="School Logo"
   width={120}
   height={120}

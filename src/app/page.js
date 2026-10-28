@@ -59,7 +59,7 @@ const RAW_SOCIAL_FEED = [
   { id: '5', platform: 'instagram', defaultTitle: 'Successful Graduate Students', defaultDesc: 'Our successful graduates share their experiences!', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQJl10pjURcPWEZ2hCZ1oWEhlbG99ORnsnZkjQbyu-SGJ5MwMeZJw1Gs4&s=10', link: 'https://www.instagram.com/xonqa.im/reel/DXn7HuEDERj/', date: 'Apr 27, 2026' },
   { id: '6', platform: 'telegram', defaultTitle: 'Results on Foreign certificates', defaultDesc: 'Check our IELTS/SAT/National certificates!', imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=8₀&w=8₀₀&auto=format&fit=crop', link: 'https://t.me/SSinKhanka/15778', date: 'Aug 27, 2026' },
   { id: '7', platform: 'youtube', defaultTitle: 'School-Talk Podcast', defaultDesc: 'A school podcast featuring educational and meaningful discussions, led by students.', imageUrl: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop', link: 'https://youtube.com/@School-Talk1'},
-  { id: '8', platform: 'instagram', defaultTitle: 'Students thoughts on the future', defaultDesc: 'Students ideas and thoughts on the future of education', imageUrl: 'question.png', link: 'https://www.instagram.com/reel/Ddii5_zgNLG/?exln=M3liczJxaDA1M214', date: 'Aug 28, 2026' },
+  { id: '8', platform: 'instagram', defaultTitle: 'Students thoughts on the future', defaultDesc: 'Students ideas and thoughts on the future of education', imageUrl: 'question.webp', link: 'https://www.instagram.com/reel/Ddii5_zgNLG/?exln=M3liczJxaDA1M214', date: 'Aug 28, 2026' },
 ];
 
 function SocialBadge({ platform }) {
@@ -117,16 +117,16 @@ export default function Home() {
           <div className="relative w-[130%] h-[130%] md:w-[150%] flex items-center justify-center -rotate-6 scale-110 opacity-40 md:opacity-70 transition-transform duration-1000">
              <div className="grid grid-cols-3 gap-4 md:gap-6">
                 <div className="flex flex-col gap-4 md:gap-6 -mt-24">
-                   <img src="lesson_5.jpg" className="rounded-3xl object-cover w-32 h-48 md:w-48 md:h-64 shadow-2xl border-4 border-white/5" alt="Demo 1" />
-                   <img src="lesson_6.jpg" className="rounded-3xl object-cover w-32 h-56 md:w-48 md:h-80 shadow-2xl border-4 border-white/5" alt="Demo 2" />
+                   <img src="lesson_5.webp" className="rounded-3xl object-cover w-32 h-48 md:w-48 md:h-64 shadow-2xl border-4 border-white/5" alt="Demo 1" />
+                   <img src="lesson_6.webp" className="rounded-3xl object-cover w-32 h-56 md:w-48 md:h-80 shadow-2xl border-4 border-white/5" alt="Demo 2" />
                 </div>
                 <div className="flex flex-col gap-4 md:gap-6 mt-12">
-                   <img src="lesson_4.jpg" className="rounded-3xl object-cover w-32 h-56 md:w-48 md:h-80 shadow-2xl border-4 border-white/5" alt="Demo 3" />
-                   <img src="lesson_3.jpg" className="rounded-3xl object-cover w-32 h-48 md:w-48 md:h-64 shadow-2xl border-4 border-white/5" alt="Demo 4" />
+                   <img src="lesson_4.webp" className="rounded-3xl object-cover w-32 h-56 md:w-48 md:h-80 shadow-2xl border-4 border-white/5" alt="Demo 3" />
+                   <img src="lesson_3.webp" className="rounded-3xl object-cover w-32 h-48 md:w-48 md:h-64 shadow-2xl border-4 border-white/5" alt="Demo 4" />
                 </div>
                 <div className="flex flex-col gap-4 md:gap-6 -mt-16">
-                   <img src="lesson_2.jpg" className="rounded-3xl object-cover w-32 h-48 md:w-48 md:h-64 shadow-2xl border-4 border-white/5" alt="Demo 5" />
-                   <img src="lesson_1.jpg" className="rounded-3xl object-cover w-32 h-56 md:w-48 md:h-80 shadow-2xl border-4 border-white/5" alt="Demo 6" />
+                   <img src="lesson_2.webp" className="rounded-3xl object-cover w-32 h-48 md:w-48 md:h-64 shadow-2xl border-4 border-white/5" alt="Demo 5" />
+                   <img src="lesson_1.webp" className="rounded-3xl object-cover w-32 h-56 md:w-48 md:h-80 shadow-2xl border-4 border-white/5" alt="Demo 6" />
                 </div>
              </div>
           </div>

@@ -9,52 +9,52 @@ const BASE_GALLERY_ITEMS = [
     id: 'item-1',
     category: 'stem',
     images: [
-      'lessons_1.jpg',
-      'lessons_2.jpg',
-      'lessons_3.jpg'
+      'lessons_1.webp',
+      'lessons_2.webp',
+      'lessons_3.webp'
     ],
   },
   {
     id: 'item-2',
     category: 'stem',
     images: [ 
-      'trash_3.jpg',
-      'trash_2.jpg'
+      'trash_3.webp',
+      'trash_2.webp'
     ],
   },
   {
     id: 'item-3',
     category: 'sports',
     images: [
-      'football_1.jpg',
-      'football_2.jpg',
+      'football_1.webp',
+      'football_2.webp',
     ],
   },
   {
     id: 'item-4',
     category: 'sports',
     images: [
-      'zakovat_1.jpg',
-      'zakovat_2.jpg',
-      'zakovat_3.jpg'
+      'zakovat_1.webp',
+      'zakovat_2.webp',
+      'zakovat_3.webp'
     ],
   },
   {
     id: 'item-5',
     category: 'culture',
     images: [
-      'graduation_1.jpg',
-      'graduation_2.jpg',
-      'graduation_3.jpg'
+      'graduation_1.webp',
+      'graduation_2.webp',
+      'graduation_3.webp'
     ],
   },
   {
     id: 'item-6',
     category: 'campus',
     images: [
-      'campus_1.jpg',
-      'campus_2.jpg',
-      'campus_3.jpg'
+      'campus_1.webp',
+      'campus_2.webp',
+      'campus_3.webp'
     ],
   },
 ];
@@ -85,34 +85,39 @@ function GalleryCard({ item }) {
 
       {/* Photo Progress Indicator Bars */}
       {item.images.length > 1 && (
-        <div className="absolute top-4 left-4 right-4 flex gap-1 z-10 pointer-events-none">
+        <div className="absolute top-4 left-4 right-4 flex gap-1.5 z-10 pointer-events-auto">
           {item.images.map((_, i) => (
-            <div
+            <button
               key={i}
-              className={`h-1 flex-1 rounded-full transition-all ${
-                i === currentIdx ? 'bg-amber-400 shadow-md' : 'bg-white/30 backdrop-blur-sm'
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentIdx(i);
+              }}
+              aria-label={`Go to photo ${i + 1}`}
+              className={`h-1.5 flex-1 rounded-full transition-all cursor-pointer ${
+                i === currentIdx ? 'bg-amber-400 shadow-md scale-y-110' : 'bg-white/40 hover:bg-white/70 backdrop-blur-sm'
               }`}
             />
           ))}
         </div>
       )}
 
-      {/* Navigation Arrows */}
+      {/* Always Visible Navigation Arrows on Mobile / Hover on Desktop */}
       {item.images.length > 1 && (
         <>
           <button
             onClick={handlePrev}
             aria-label="Previous Photo"
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-amber-500 hover:text-black text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20 backdrop-blur-sm border border-white/20"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-amber-500 hover:text-black text-white flex items-center justify-center transition-all opacity-90 sm:opacity-0 sm:group-hover:opacity-100 cursor-pointer z-20 backdrop-blur-md border border-white/20 shadow-lg active:scale-95"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
             aria-label="Next Photo"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-amber-500 hover:text-black text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 cursor-pointer z-20 backdrop-blur-sm border border-white/20"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 hover:bg-amber-500 hover:text-black text-white flex items-center justify-center transition-all opacity-90 sm:opacity-0 sm:group-hover:opacity-100 cursor-pointer z-20 backdrop-blur-md border border-white/20 shadow-lg active:scale-95"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-5 h-5" />
           </button>
         </>
       )}
@@ -178,7 +183,7 @@ export default function PublicGalleryPage() {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-medium transition-all border ${
+                className={`px-4 py-2 rounded-xl text-xs font-medium transition-all border cursor-pointer ${
                   isActive
                     ? 'bg-amber-500/15 border-amber-500/50 text-amber-400 shadow-md shadow-amber-500/10'
                     : 'theme-bg-card theme-border theme-text-secondary hover:theme-text-primary'

@@ -9,6 +9,7 @@ export const TRANSLATIONS = {
       contact: 'Contact',
       apply: 'Apply Now',
       specializedSchool: 'SPECIALIZED SCHOOL',
+      xonqaRegion: 'Xonqa Region',
     },
     hero: {
       agencyBadge: 'Agency for Specialized Educational Institutions of the Republic of Uzbekistan',
@@ -248,6 +249,7 @@ export const TRANSLATIONS = {
     footer: {
       rights: 'All rights reserved.',
       schoolName: 'Xonqa Tuman Specialized School',
+      creator: 'website creator:',
     },
   },
 
@@ -261,6 +263,7 @@ export const TRANSLATIONS = {
       contact: "Bog'lanish",
       apply: 'Ariza Topshirish',
       specializedSchool: 'IXTISOSLASHTIRILGAN MAKTAB',
+      xonqaRegion: 'Xonqa Tumani',
     },
     hero: {
       agencyBadge: "O'zbekiston Respublikasi Ixtisoslashtirilgan Ta'lim Muassasalari Agentligi",
@@ -500,6 +503,7 @@ export const TRANSLATIONS = {
     footer: {
       rights: 'Barcha huquqlar himoyalangan.',
       schoolName: 'Xonqa Tuman Ixtisoslashtirilgan Maktabi',
+      creator: 'sayt yaratuvchisi:',
     },
   },
 
@@ -513,6 +517,7 @@ export const TRANSLATIONS = {
       contact: 'Контакты',
       apply: 'Подать заявку',
       specializedSchool: 'СПЕЦИАЛИЗИРОВАННАЯ ШКОЛА',
+      xonqaRegion: 'Ханкинский Район',
     },
     hero: {
       agencyBadge: 'Агентство специализированных образовательных учреждений Республики Узбекистан',
@@ -752,6 +757,7 @@ export const TRANSLATIONS = {
     footer: {
       rights: 'Все права защищены.',
       schoolName: 'Специализированная Школа Ханкского Района',
+      creator: 'создатель сайта:',
     },
   },
 };

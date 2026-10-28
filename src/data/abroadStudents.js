@@ -18,7 +18,7 @@ export const ABROAD_STUDENTS = [
     scholarship: "$8,900 / year",
     status: "enrolled", // "enrolled" = currently studying there
     statusLabel: "Enrolled",
-    studentPhoto: "/bahodir.jpg", // Student photo
+    studentPhoto: "/bahodir.webp", // Student photo
     uniPhoto: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=800&auto=format&fit=crop",
     lat: 39.9610,
     lng: 116.3099,
@@ -35,7 +35,7 @@ export const ABROAD_STUDENTS = [
     scholarship: "$12,500 / year",
     status: "accepted", // "accepted" = got accepted but chose another uni
     statusLabel: "Offer Received (Grant Awarded)",
-    studentPhoto: "/bahodir.jpg",
+    studentPhoto: "/bahodir.webp",
     uniPhoto: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop",
     lat: 45.7500,
     lng: 126.6333,
@@ -52,7 +52,7 @@ export const ABROAD_STUDENTS = [
     scholarship: "$30,000 / year",
     status: "accepted",
     statusLabel: "Offer Received (Grant Awarded)",
-    studentPhoto: null, // Add student photo path here if available (e.g. '/shamsiddin.jpg')
+    studentPhoto: null, // Add student photo path here if available
     uniPhoto: "https://images.shiksha.com/mediadata/images/1534510752phpcvnXom_g.jpg",
     lat: 41.2917,
     lng: -72.9611,
