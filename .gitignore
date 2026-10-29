@@ -11,6 +11,8 @@
 /build
 
 # local env files
+.env
+.env*
 .env*.local
 
 # IDEs
