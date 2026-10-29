@@ -7,9 +7,9 @@ export const metadata = {
   title: "Xonqa Tuman Maktab Website",
   description: "Official School Website",
   icons: {
-    icon: '/school_logo.webp',
-    shortcut: '/school_logo.webp',
-    apple: '/school_logo.webp',
+    icon: '/logo_0431.webp',
+    shortcut: '/logo_0431.webp',
+    apple: '/logo_0431.webp',
   },
   verification: {
     google: "T8Rk57O-PcUXfy3RafEmB0EJmyMUIZu-Krmr5yucePg",

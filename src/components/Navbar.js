@@ -118,18 +118,18 @@ export default function Navbar() {
       {/* Brand Header */}
       <div className="space-y-6">
         <Link href={user ? '/platform' : '/'} className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 rounded-xl overflow-hidden border theme-border shrink-0 bg-emerald-500/10 flex items-center justify-center">
-           <Image
-  src="/school_logo.webp"
-  alt="School Logo"
-  width={120}
-  height={120}
-  quality={95}
-  className="object-cover w-full h-full"
-  onError={(e) => {
-    e.currentTarget.style.display = 'none';
-  }}
-/>
+          <div className="relative w-10 h-10 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
+            <Image
+              src="/logo_0431.webp"
+              alt="School Logo"
+              width={120}
+              height={120}
+              quality={95}
+              className="object-cover w-full h-full"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
           </div>
           {!isCollapsed && (
             <div className="overflow-hidden">

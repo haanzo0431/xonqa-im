@@ -64,9 +64,9 @@ export default function PublicHeader() {
     <header className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b theme-border theme-bg-page/95 backdrop-blur-md sticky top-0 z-50 transition-all">
       {/* School Brand Logo */}
       <Link href="/" className="flex items-center gap-2.5 sm:gap-3 hover:opacity-80 transition-opacity min-w-0">
-        <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-emerald-500/20 shrink-0 bg-emerald-500/10 flex items-center justify-center">
+        <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
           <Image
-            src="/school_logo.webp"
+            src="/logo_0431.webp"
             alt="School Logo"
             width={120}
             height={120}
