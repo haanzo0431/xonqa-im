@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import { LanguageProvider } from '@/context/LanguageContext';
 
 export const metadata = {
-  title: "Xonqa Tuman Maktab Website",
-  description: "Official School Website",
+  title: "Xonqa tuman Ixtisoslashtirilgan Maktabi",
+  description: "Xonqa tuman Ixtisoslashtirilgan Maktabi Rasmiy Veb-Sayti",
   icons: {
     icon: '/logo_0431.webp',
     shortcut: '/logo_0431.webp',
