@@ -11,6 +11,9 @@ export const metadata = {
     shortcut: '/school_logo.webp',
     apple: '/school_logo.webp',
   },
+  verification: {
+    google: "T8Rk57O-PcUXfy3RafEmB0EJmyMUIZu-Krmr5yucePg",
+  },
 };
 
 export default function RootLayout({ children }) {
